@@ -1,16 +1,18 @@
 # dog_travel_permission
 
-A new Flutter project.
+My girlfriend had a tough time researching if our dogs would be able fly on popular airplane companies in Brazil, so I made an app to help with that.
 
-## Getting Started
+## What you need to run this project
 
-This project is a starting point for a Flutter application.
+- Android Studio or other IDE: http://bit.ly/3IWeWfC
+- Flutter SDK: https://docs.flutter.dev/get-started/install
+- Flutter and Dart Plugins for the IDE
+- Add the assets with whichever company logo you want to use to your pubspeck.yaml
 
-A few resources to get you started if this is your first Flutter project:
+### Pet Policies
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+These are the ones I used for the project :)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Azul: https://www.voeazul.com.br/en/for-your-trip/services/pet-inside-the-cabin
+- Gol: https://www.voegol.com.br/en/gol-services/travel-with-pets
+- Latam: https://www.latamairlines.com/au/en/experience/prepare-your-trip/pets-transportation

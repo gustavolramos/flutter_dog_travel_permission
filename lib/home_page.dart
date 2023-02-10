@@ -1,9 +1,9 @@
+import 'package:dog_travel_permission/base_structure.dart';
 import 'package:flutter/material.dart';
 
 import 'airline_pages/azul.dart';
 import 'airline_pages/gol.dart';
 import 'airline_pages/latam.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,22 +15,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.check_box),
-        title: const Text('Dog Permission'),
-        backgroundColor: Colors.greenAccent,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+    return BaseStructure(
+        child: ListView(
           children: [
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(40.0),
-              child: Text(
-                'Choose a company ',
-              style: Theme.of(context).textTheme.headlineSmall),
-           ),
+              child: Text('Choose a company ',
+                  style: Theme.of(context).textTheme.headlineSmall),
+            ),
             const SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
@@ -43,9 +35,8 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                      const AzulPage()));
-                      },
+                                builder: (BuildContext context) => const AzulPage()));
+                  },
                       icon: Image.asset('assets/azul_logo.png')),
                   IconButton(
                       iconSize: 80,
@@ -54,8 +45,8 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    const GolPage()));
-                      },
+                                const GolPage()));
+                        },
                       icon: Image.asset('assets/gol_logo.png')),
                   IconButton(
                     iconSize: 100,
@@ -63,17 +54,15 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const LatamPage()));
-                    },
+                              builder: (BuildContext context) => const LatamPage()));
+                      },
                     icon: Image.asset('assets/latam_logo.png'),
                   )
                 ],
               ),
             )
-            ],
-        ),
-      ),
+          ],
+        )
     );
   }
 }
