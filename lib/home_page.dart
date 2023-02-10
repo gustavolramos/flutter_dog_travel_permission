@@ -1,7 +1,9 @@
-import 'package:dog_travel_permission/airline_comapanies/azul.dart';
 import 'package:flutter/material.dart';
-import 'airline_comapanies/gol.dart';
-import 'airline_comapanies/latam.dart';
+
+import 'airline_pages/azul.dart';
+import 'airline_pages/gol.dart';
+import 'airline_pages/latam.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,22 +17,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.check_box),
-        title: Text('Dog Permission'),
+        leading: const Icon(Icons.check_box),
+        title: const Text('Dog Permission'),
         backgroundColor: Colors.greenAccent,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
+             Padding(
               padding: const EdgeInsets.all(40.0),
-              child: const Text(
+              child: Text(
                 'Choose a company ',
-                style: TextStyle(
-                  fontSize: 30,)),
-            ),
-            SizedBox(height: 50),
+              style: Theme.of(context).textTheme.headlineSmall),
+           ),
+            const SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
               child: Row(
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    const AzulPage()));
+                                      const AzulPage()));
                       },
                       icon: Image.asset('assets/azul_logo.png')),
                   IconButton(
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             )
-          ],
+            ],
         ),
       ),
     );
