@@ -36,6 +36,13 @@ class _AzulPageState extends State<AzulPage> {
                 decoration: const InputDecoration(hintText: 'What is your dog\'s weight in kg?'),
           ),
         ),
+            Row(
+              children: [
+                Text('Check the policy for this company here', style: Theme.of(context).textTheme.bodySmall),
+                IconButton(onPressed: (){},
+                    icon: Icon(Icons.open_in_new, size: 40, color: Colors.blue))
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
               child: TextField(

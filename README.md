@@ -8,6 +8,7 @@ My girlfriend had a tough time researching if our dogs would be able fly on popu
 - Flutter SDK: https://docs.flutter.dev/get-started/install
 - Flutter and Dart Plugins for the IDE
 - Add the assets with whichever company logo you want to use to your pubspeck.yaml
+- To open external URLs use: https://pub.dev/packages/url_launcher
 
 ### Pet Policies
 
