@@ -1,6 +1,5 @@
 import 'package:dog_travel_permission/base_structure.dart';
 import 'package:flutter/material.dart';
-
 import 'airline_pages/azul.dart';
 import 'airline_pages/gol.dart';
 import 'airline_pages/latam.dart';
@@ -19,13 +18,18 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.all(40.0),
-              child: Text('Choose a company ',
-                  style: Theme.of(context).textTheme.headlineSmall),
+              padding: const EdgeInsets.fromLTRB(20, 40, 20, 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Choose a company ',
+                      style: Theme.of(context).textTheme.headlineSmall),
+                ],
+              ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 40),
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -56,11 +60,15 @@ class _HomePageState extends State<HomePage> {
                           MaterialPageRoute(
                               builder: (BuildContext context) => const LatamPage()));
                       },
-                    icon: Image.asset('assets/latam_logo.png'),
+                    icon: Image.asset('assets/latam_logo.jpg'),
                   )
                 ],
               ),
-            )
+            ),
+            Container(
+                height: 200,
+                width: 200,
+                child: Image.asset('assets/green_dog_cartoon.jpg'))
           ],
         )
     );

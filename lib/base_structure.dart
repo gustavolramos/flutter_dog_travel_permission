@@ -9,9 +9,10 @@ class BaseStructure extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.check_box),
-        title: const Text('Dog Permission'),
-        backgroundColor: Colors.greenAccent,
+        centerTitle: true,
+        title: Text('Dog Permission', style: TextStyle(fontSize: 20)),
+        leading: const Icon(Icons.local_police_rounded),
+        backgroundColor: Colors.green,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

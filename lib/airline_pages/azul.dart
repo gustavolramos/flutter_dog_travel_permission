@@ -1,6 +1,7 @@
 import 'package:dog_travel_permission/base_structure.dart';
 import 'package:dog_travel_permission/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AzulPage extends StatefulWidget {
   const AzulPage({super.key});
@@ -10,16 +11,39 @@ class AzulPage extends StatefulWidget {
 }
 
 class _AzulPageState extends State<AzulPage> {
-  late final TextEditingController _weightController = TextEditingController();
-  late final TextEditingController _sizeController = TextEditingController();
-  bool dogPermission = false;
-  String dogResponse = '';
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _sizeController = TextEditingController();
+  final Uri _url = Uri.parse('https://www.voeazul.com.br/en/for-your-trip/services/pet-inside-the-cabin');
+  String _dogResponse = '';
 
   void dogPermissionConfirmation(String weight, String size) {
-    double weight = double.parse(_weightController.text);
-    double size = double.parse(_sizeController.text);
-    weight < 10 && size < 30 ? dogPermission = true : false;
-    dogPermission == false ? dogResponse = 'Your dog can\'t fly' : 'Your dog will fly!';
+    try {
+      final double weight = double.parse(_weightController.text);
+      final double size = double.parse(_sizeController.text);
+      if (weight < 10 && size < 30) {
+        setState(() {
+          _dogResponse = 'Your dog will fly!';
+        });
+      } else {
+        setState(() {
+          _dogResponse = 'Your dog cannot fly';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _dogResponse = 'Invalid input, please enter a number';
+      });
+    }
+  }
+
+  void clearDogResponse(){
+    _dogResponse = '';
+  }
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
 
   @override
@@ -27,7 +51,22 @@ class _AzulPageState extends State<AzulPage> {
     return BaseStructure(
         child: ListView(
           children: [
-            SizedBox(height: 150, child: Image.asset('assets/azul_logo.png')),
+            SizedBox(
+                height: 150,
+                child: Image.asset('assets/azul_logo.png')),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 80),
+              child: Row(children: [
+                  Expanded(flex: 3, child: Text('Check Azul\'s policy', style: Theme.of(context).textTheme.bodySmall)),
+                  Expanded(flex: 1, child: IconButton(onPressed: (){
+                      _launchUrl();
+                    },
+                        icon: const Icon(Icons.open_in_new, size: 25, color: Colors.blue)),
+                  )
+                ],
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
               child: TextField(
@@ -36,13 +75,6 @@ class _AzulPageState extends State<AzulPage> {
                 decoration: const InputDecoration(hintText: 'What is your dog\'s weight in kg?'),
           ),
         ),
-            Row(
-              children: [
-                Text('Check the policy for this company here', style: Theme.of(context).textTheme.bodySmall),
-                IconButton(onPressed: (){},
-                    icon: Icon(Icons.open_in_new, size: 40, color: Colors.blue))
-              ],
-            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
               child: TextField(
@@ -64,8 +96,8 @@ class _AzulPageState extends State<AzulPage> {
                   ElevatedButton(
                       onPressed: () {
                         setState(() {
+                          clearDogResponse();
                           dogPermissionConfirmation(_weightController.text, _sizeController.text);
-                          print(dogResponse);
                           FocusManager.instance.primaryFocus?.unfocus();
                         });
                         },
@@ -73,6 +105,15 @@ class _AzulPageState extends State<AzulPage> {
             ],
           ),
         ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(_dogResponse, style: Theme.of(context).textTheme.bodySmall),
+                ],
+              ),
+            ),
       ],
     ));
   }
