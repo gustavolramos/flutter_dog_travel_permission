@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home:  const HomePage(),
       theme: ThemeData(
+        primaryColor: Colors.green,
         fontFamily: 'Raleway',
         textTheme: const TextTheme(
           headlineSmall: TextStyle(fontSize: 30, color: Colors.black),

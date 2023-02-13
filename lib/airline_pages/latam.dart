@@ -78,7 +78,10 @@ class _LatamPageState extends State<LatamPage> {
                   validator: (value){if(value!.isEmpty){return 'Type the dog\'s weight';}},
                   keyboardType: TextInputType.number,
                   controller: _weightController,
-                  decoration: const InputDecoration(hintText: 'What is your dog\'s weight in kg?'),
+                  decoration: const InputDecoration(
+                      labelText: 'Weight',
+                      hintText: 'What is your dog\'s weight in kg?',
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black))),
                 ),
               ),
               Padding(
@@ -87,7 +90,10 @@ class _LatamPageState extends State<LatamPage> {
                   validator: (value){if(value!.isEmpty){return 'Type the dog\'s size';}},
                   keyboardType: TextInputType.number,
                   controller: _sizeController,
-                  decoration: const InputDecoration(hintText: 'What is your dog\'s size in m²?'),
+                  decoration: const InputDecoration(
+                      labelText: 'Size',
+                      hintText: 'What is your dog\'s size in m²?',
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black))),
                 ),
               ),
               Padding(
