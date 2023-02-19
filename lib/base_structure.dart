@@ -10,7 +10,7 @@ class BaseStructure extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Dog Permission', style: TextStyle(fontSize: 20)),
+        title: const Text('Dog Permission', style: TextStyle(fontSize: 20)),
         leading: const Icon(Icons.local_police_rounded),
         backgroundColor: Colors.green,
       ),
